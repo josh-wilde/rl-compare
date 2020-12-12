@@ -1,6 +1,8 @@
 import gym
 import click
 
+from RandomAgent import RandomAgent
+
 @click.command()
 @click.option('--env_name', default='MountainCar-v0')
 @click.option('--episodes', default=1)
@@ -9,6 +11,9 @@ import click
 def main(env_name, episodes, max_t, render):
     # Instantiate the environment
     env = gym.make(env_name)
+
+    # Instantiate agents
+    random_mountain_agent = RandomAgent(env.action_space)
 
     # Loop through the episodes
     for episode in range(episodes):
@@ -20,9 +25,8 @@ def main(env_name, episodes, max_t, render):
             if render: env.render()
             print(observation)
 
-            # Set action - call agent here
-            # Probably want to send the agent the action space, the last observation, maybe other stuff
-            action = env.action_space.sample()
+            # Agents act here based on current observation
+            action = random_mountain_agent.act(observation)
 
             observation, reward, done, info = env.step(action) # step based on action
 
