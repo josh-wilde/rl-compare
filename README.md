@@ -1,2 +1,2 @@
-# rl-compare
-Comparison of RL algorithms
+# rl-mountain-car
+RL algorithm experimentation on Mountain Car environment

@@ -12,7 +12,7 @@ def main(env_name, episodes, max_t, render):
     # Instantiate the environment
     env = gym.make(env_name)
 
-    # Instantiate agents
+    # Instantiate agent
     random_mountain_agent = RandomAgent(env.action_space)
 
     # Loop through the episodes
